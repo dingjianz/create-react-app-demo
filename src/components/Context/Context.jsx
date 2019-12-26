@@ -5,7 +5,7 @@ class Context extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      color:true
+      color:'red'
     }
   }
 
@@ -18,7 +18,7 @@ class Context extends React.Component {
   
   //2. 使用属性校验，规定一下传递给子组件的数据类型，需要定义一个静态的(static) childContextTypes(固定名称，不要改)
   static childContextTypes = {
-    color: ReactTypes.bool // 规定了传递给子组件的数据类型
+    color: ReactTypes.string // 规定了传递给子组件的数据类型
   }
 
   render() {
@@ -45,11 +45,12 @@ class Com3 extends React.Component {
 
   //3. 上来以后，先来个属性校验，去校验一下父组件传递过来的参数属性
   static contextTypes = {
-    color:ReactTypes.bool // 这里，如果子组件想要使用父组件通过 context 共享的数据，那么在使用之前，一定要先做一下数据类型校验
+    color:ReactTypes.string // 这里，如果子组件想要使用父组件通过 context 共享的数据，那么在使用之前，一定要先做一下数据类型校验
   }
   render() {
+    const { color } = this.context
     return <div>
-      <h5>这是孙子组件</h5>
+      <h5 style={{color:color}}>这是孙子组件.</h5>
     </div>
   }
 }
