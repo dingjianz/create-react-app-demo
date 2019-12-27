@@ -13,6 +13,9 @@ export default class App extends React.Component {
     }
   }
 
+componentWillMount() {
+  // console.log(window.location.pathname.split('/'))
+}
 componentDidMount() {
   this.setState( {
   })
@@ -27,21 +30,20 @@ componentDidMount() {
             <Menu
               theme="dark"
               mode="horizontal"
-              defaultSelectedKeys={['1']}
-              style={{ lineHeight: '64px' }}
-            >
-              <Menu.Item key="1">
+              defaultSelectedKeys={[window.location.pathname.split('/')[1]]}
+              style={{ lineHeight: '64px' }}>
+              <Menu.Item key="home">
                 <Link to="/home">首页</Link>
               </Menu.Item>
-              <Menu.Item key="2">
-                <Link to="/movie">电影</Link>
+              <Menu.Item key="movie">
+                <Link to="/movie/in_theaters/1">电影</Link>
               </Menu.Item>
-              <Menu.Item key="3">
+              <Menu.Item key="about">
                 <Link to="/about">关于</Link>
               </Menu.Item>
             </Menu>
           </Header>
-          <Content style={{background:'#fff'}}>
+          <Content style={{background:'#fff',flex:1}}>
             <RouterConfig></RouterConfig>
           </Content>
           <Footer style={{ textAlign: 'center' }}>

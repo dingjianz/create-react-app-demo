@@ -6,7 +6,7 @@ import About from '../components/about/index.jsx'
 
 export default class routerConfig extends React.Component {
   render() {
-    return (<div>
+    return (<div style={{ height: '100%'}}>
       <Route path='/home' component={Home}></Route>
       <Route path='/movie' component={Movie}></Route>
       <Route path='/about' component={About}></Route>
